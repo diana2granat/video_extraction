@@ -1,173 +1,35 @@
-Video Extraction
+# Video Extraction Tool
 
-A Python script to download videos from a user-provided webpage URL, extract metadata using yt-dlp and ExifTool, and save the results to a JSON file.
+A Python script to download videos from webpages and extract comprehensive metadata using `yt-dlp` and `ExifTool`.
 
-Features
+## Solution Overview
 
+I consulted Grok to identify the optimal solution:
 
+| Component       | Advantage                                                                 |
+|-----------------|---------------------------------------------------------------------------|
+| **Python**      | Versatile with libraries for web scraping, JSON handling, and subprocess execution |
+| **yt-dlp**      | Extracts video URLs and metadata from thousands of websites               |
+| **ExifTool**    | Provides detailed file metadata (resolution, codecs, etc.)                |
+| **JSON Output** | Structured format easily convertible to CSV or other formats              |
 
+## Features
 
+✔ **URL Input** - Prompts for webpage URL with embedded video  
+✔ **Smart Extraction** - Uses `yt-dlp` or BeautifulSoup for video URL detection  
+✔ **Reliable Download** - Leverages `yt-dlp` with FFmpeg for stream merging  
+✔ **Rich Metadata** - Combines web and file metadata into unified JSON output  
+✔ **Cross-Platform** - Works on Windows, macOS, and Linux  
 
-Prompts the user to input a webpage URL containing an embedded video.
+## Prerequisites
 
+### Required Software
+- **Python 3.11+** (`python311` via Chocolatey)
+- **FFmpeg** (`choco install ffmpeg -y`)
+- **ExifTool** ([Download](https://exiftool.org/))
 
-
-Extracts the video URL using yt-dlp or web scraping with BeautifulSoup.
-
-
-
-Downloads the video using yt-dlp with FFmpeg for stream merging.
-
-
-
-Extracts file metadata (e.g., resolution, codecs) using ExifTool.
-
-
-
-Combines web and file metadata into a JSON file.
-
-Prerequisites
-
-
-
-
-
-Python 3.11+: Installed via Chocolatey (python311 in C:\ProgramData\chocolatey\lib).
-
-
-
-FFmpeg: Installed via Chocolatey (ffmpeg -version).
-
-
-
-ExifTool: Located at exiftool-13.32_64\exiftool.exe in the project directory.
-
-
-
-Python Packages:
-
-
-
-
-
+### Python Packages
+```bash
 yt-dlp
-
-
-
 requests
-
-
-
 beautifulsoup4
-
-Setup
-
-
-
-
-
-Clone the Repository:
-
-git clone https://github.com/diana2granat/video_extraction.git
-cd video_extraction
-
-
-
-Create and Activate a Virtual Environment:
-
-python -m venv venv
-.\venv\Scripts\Activate.ps1  # Windows
-
-
-
-Install Python Packages:
-
-pip install yt-dlp requests beautifulsoup4
-
-
-
-Install FFmpeg (if not already installed):
-
-choco install ffmpeg -y  # Run in admin PowerShell
-
-
-
-Download ExifTool:
-
-
-
-
-
-Download exiftool-13.32_64.zip from https://exiftool.org/.
-
-
-
-Extract to exiftool-13.32_64 in the project directory.
-
-Usage
-
-
-
-
-
-Run the Script:
-
-python extract_video_metadata.py
-
-
-
-Enter URL: When prompted, input the webpage URL (e.g., https://www.example.com/video-page).
-
-
-
-Outputs:
-
-
-
-
-
-Video: video_output/video.mp4 (or similar format).
-
-
-
-Metadata: video_output/video_metadata.json.
-
-Example Output
-
-video_output/video_metadata.json:
-
-{
-    "title": "Sample Embedded Video",
-    "publication_date": "2025-07-24",
-    "categories_tags": ["Tutorial", "Tech"],
-    "duration": "00:10:15",
-    "author_uploader": "TechGuru",
-    "view_count": "50000",
-    "resolution": "1920x1080",
-    "file_format": "MP4",
-    "codecs": "H.264, AAC",
-    "file_size": "50.2 MB",
-    "frame_rate": "30 fps",
-    "bit_rate": "6 Mbps",
-    "video_file": "video_output/video.mp4"
-}
-
-Notes
-
-
-
-
-
-Ensure you have permission to download videos (check the website’s terms).
-
-
-
-For JavaScript-heavy sites, use browser developer tools (F12, Network > Media) to find direct video URLs (e.g., .mp4, .m3u8).
-
-
-
-Update yt-dlp regularly: pip install -U yt-dlp.
-
-License
-
-MIT License
