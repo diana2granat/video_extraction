@@ -1,0 +1,23 @@
+Python virtual environment
+
+venv/ .venv/
+
+Output directories and files
+
+video_output/ *.mp4 *.mkv *.webm *.mov *.info.json exif_output.txt
+
+Python cache
+
+pycache/ *.pyc
+
+ExifTool directory
+
+exiftool-13.32_64/
+
+IDE and editor files
+
+.vscode/ .idea/
+
+Miscellaneous
+
+*.log *.DS_Store
