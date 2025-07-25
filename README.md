@@ -33,3 +33,4 @@ I consulted Grok to identify the optimal solution:
 yt-dlp
 requests
 beautifulsoup4
+selenium
